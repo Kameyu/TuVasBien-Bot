@@ -77,7 +77,7 @@ Bot.on('message', message => {
 		var num = [':zero:', ':one:', ':two:', ':three:', ':four:', ':five:', ':six:', ':seven:', ':eight:', ':nine:' ]
 		var src = message.content.substr(7) /* substr('!panel ') */
 		
-		if (src.length > 26 && message.author != auth.ownerID)
+		if (src.length > 26 && message.author != Config.ownerID)
 		{
 			chan.send('Wow calme toi mec... Pas de phrases aussi longues. (**26 caractères max**)')
 			console.log('[LOG] Buffer overflow. User: '+message.author)
