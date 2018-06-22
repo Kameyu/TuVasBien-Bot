@@ -1,0 +1,10 @@
+{
+	"name": "TU VAS BIEN ?",
+	"version": "1.0.3",
+	"description": "Tu vas bien ?",
+	"main": "main.js",
+	"author": "Kameyu#1337",
+	"dependencies": {
+		"discord.js": "^11.3.2"
+	}
+}
