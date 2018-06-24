@@ -9,6 +9,7 @@ module.exports = function() {
   /*	PANELIZE TEXT	*/
   this.panelize = function(src) {
 		var dest = ""
+		var num = [":zero:", ":one:", ":two:", ":three:", ":four:", ":five:", ":six:", ":seven:", ":eight:", ":nine:" ]
 		for (var i = 0; i < src.length; i++)
 		{
 			if (isLetter(src[i]))

@@ -79,7 +79,6 @@ Bot.on("message", message => {
 	{
 		if (spamCheck(message, chan))
 			return
-		var num = [":zero:", ":one:", ":two:", ":three:", ":four:", ":five:", ":six:", ":seven:", ":eight:", ":nine:" ]
 		var src = message.content.substr(7) /* substr("!panel ") */
 		
 		if (src.length > 26 && message.author != Config.ownerID)
