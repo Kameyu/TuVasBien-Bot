@@ -26,7 +26,12 @@ module.exports = function() {
   this.spamCheck = function(message, chan) {
 		var fs = require("fs")
 		var msgSettings = fs.readFileSync("messages.json")
-		msgSettings = JSON.parse(msgSettings)
+		try {
+			msgSettings = JSON.parse(msgSettings)
+		} catch(e) {
+			console.error("Could not parse message.json file:\n", e)
+			return
+		}
 		var resIdx = msgSettings.data.findIndex(id => id.name === message.author.username)
 		if (resIdx != -1)
 		{
