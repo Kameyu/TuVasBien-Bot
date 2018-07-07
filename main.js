@@ -2,11 +2,11 @@
 var Discord = require("discord.js")
 var Config = require("./config.json")
 
-/*	Function controller (adds lisibility)	*/
+/* Function controller (adds lisibility) */
 require("./controller.js")
 require("./utils.js")()
 
-/*	Main	*/
+/* Main */
 var Bot = new Discord.Client()
 Bot.login(Config.token)
 console.log("[Starting bot...]")
@@ -21,11 +21,14 @@ Bot.on("message", message => {
 	
 	let args = message.content.split(" ")
 	var chan = message.channel
-	/*	!rekt	*/
+	
+	/* Check for any spam */
+	if (spamCheck(message, chan))
+			return
+		
+	/* !rekt */
 	if (message.content.startsWith("!rekt"))
 	{
-		if (spamCheck(message, chan))
-			return
 		if (args[1])
 		{
 			if (args[1].startsWith("<@"))
@@ -38,6 +41,7 @@ Bot.on("message", message => {
 				return
 			}
 			
+			/* Get a list of users in the channel where the command was sent */
 			for (let [snow, usr] of chan.members)
 			{
 				var userID = usr.toString().replace(/[<@!>]/g, "")
@@ -64,22 +68,25 @@ Bot.on("message", message => {
 		}
 	}
 	
-	/*	!slide	*/
+	/* tu vas bien ? */
 	if (!message.content.startsWith("!panel") && message.content.toLowerCase().replace(/ /g, "").includes("tuvasbien"))
 	{
-		if (spamCheck(message, chan))
-			return
-		chan.send("T\n  U\n\n      V\n         A\n            S\n\n                 B\n                     I\n                        E\n                            N\n                                  ?")
+		chan.send("T\n\tU\n\n\t\t\tV\n\t\t\t\tA\n\t\t\t\t\t S\n\n\t\t\t\t\t\t\tB\n\t\t\t\t\t\t\t\tI\n\t\t\t\t\t\t\t\t\tE\n\t\t\t\t\t\t\t\t\t\tN\n\t\t\t\t\t\t\t\t\t\t\t?")
 		console.log("[LOG] >>> "+message.author.username+" ("+message.author+")  >>> TU VAS BIEN ?")
 		return
 	}
 	
-	/*	!panel	*/
+	if (message.content.startsWith("!runtest") && message.author == Config.ownerID)
+	{
+		/* do shit for test purpose here */
+		console.log("[LOG] >>> "+message.author.username+" ("+message.author+")  >>> TEST")
+		return
+	}
+	
+	/* !panel */
 	if (message.content.startsWith("!panel"))
 	{
-		if (spamCheck(message, chan))
-			return
-		var src = message.content.substr(7) /* substr("!panel ") */
+		var src = message.content.substr(7) /* substract "!panel " */
 		
 		if (src.length > 26 && message.author != Config.ownerID)
 		{
