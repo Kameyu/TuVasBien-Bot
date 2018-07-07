@@ -71,7 +71,10 @@ Bot.on("message", message => {
 	/* tu vas bien ? */
 	if (!message.content.startsWith("!panel") && message.content.toLowerCase().replace(/ /g, "").includes("tuvasbien"))
 	{
-		chan.send("T\n\tU\n\n\t\t\tV\n\t\t\t\tA\n\t\t\t\t\t S\n\n\t\t\t\t\t\t\tB\n\t\t\t\t\t\t\t\tI\n\t\t\t\t\t\t\t\t\tE\n\t\t\t\t\t\t\t\t\t\tN\n\t\t\t\t\t\t\t\t\t\t\t?")
+		chan.send("T\n\tU\n\n"+
+				  "\t\t\tV\n\t\t\t\tA\n\t\t\t\t\t S\n\n"+
+				  "\t\t\t\t\t\t\tB\n\t\t\t\t\t\t\t\tI\n\t\t\t\t\t\t\t\t\tE\n\t\t\t\t\t\t\t\t\t\tN\n"+
+				  "\t\t\t\t\t\t\t\t\t\t\t?")
 		console.log("[LOG] >>> "+message.author.username+" ("+message.author+")  >>> TU VAS BIEN ?")
 		return
 	}
